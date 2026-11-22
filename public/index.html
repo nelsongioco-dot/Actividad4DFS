@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Productos | Full Stack</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+
+  <!-- INICIO DE SESIÓN -->
+  <section id="seccion-login" class="contenedor">
+    <header class="encabezado">
+      <span class="etiqueta">MI INVENTARIO</span>
+      <h1>Iniciar sesión</h1>
+      <p>Ingresa para administrar tus productos.</p>
+    </header>
+
+    <div class="panel">
+      <form id="formulario-login">
+
+        <label for="correo-login">
+          Correo electrónico
+        </label>
+        <input
+          type="email"
+          id="correo-login"
+          placeholder="ejemplo@correo.com"
+          autocomplete="username"
+          required
+        >
+
+        <label for="contrasena-login">
+          Contraseña
+        </label>
+        <input
+          type="password"
+          id="contrasena-login"
+          placeholder="Escribe tu contraseña"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit" id="boton-login">
+          Entrar
+        </button>
+
+        <p id="mensaje-login" role="alert"></p>
+
+      </form>
+
+      <p>¿No tienes cuenta?</p>
+
+      <button type="button" id="ir-registro">
+        Crear una cuenta
+      </button>
+    </div>
+  </section>
+
+
+  <!-- REGISTRO DE USUARIOS -->
+  <section id="seccion-registro" class="contenedor" hidden>
+    <header class="encabezado">
+      <span class="etiqueta">MI INVENTARIO</span>
+      <h1>Crear cuenta</h1>
+      <p>Regístrate para utilizar el inventario.</p>
+    </header>
+
+    <div class="panel">
+      <form id="formulario-registro">
+
+        <label for="nombre-registro">
+          Nombre
+        </label>
+        <input
+          type="text"
+          id="nombre-registro"
+          placeholder="Escribe tu nombre"
+          autocomplete="name"
+          required
+        >
+
+        <label for="correo-registro">
+          Correo electrónico
+        </label>
+        <input
+          type="email"
+          id="correo-registro"
+          placeholder="ejemplo@correo.com"
+          autocomplete="email"
+          required
+        >
+
+        <label for="contrasena-registro">
+          Contraseña
+        </label>
+        <input
+          type="password"
+          id="contrasena-registro"
+          placeholder="Mínimo 8 caracteres"
+          minlength="8"
+          autocomplete="new-password"
+          required
+        >
+
+        <button type="submit" id="boton-registro">
+          Registrarme
+        </button>
+
+        <p id="mensaje-registro" role="alert"></p>
+
+      </form>
+
+      <button type="button" id="ir-login">
+        Ya tengo una cuenta
+      </button>
+    </div>
+  </section>
+
+
+  <!-- GESTOR DE PRODUCTOS -->
+  <main id="seccion-productos" class="contenedor" hidden>
+
+    <header class="encabezado">
+      <span class="etiqueta">MI INVENTARIO</span>
+      <h1>Gestor de Productos</h1>
+      <p>Administra tus productos de forma sencilla.</p>
+
+      <p id="nombre-usuario"></p>
+
+      <button type="button" id="cerrar-sesion">
+        Cerrar sesión
+      </button>
+    </header>
+
+    <section class="panel">
+
+      <!-- FORMULARIO DE PRODUCTOS -->
+      <form id="formulario-productos">
+
+        <h2 id="titulo-formulario">
+          Agregar producto
+        </h2>
+
+        <input type="hidden" id="producto-id">
+
+        <label for="producto-nombre">
+          Nombre del producto
+        </label>
+        <input
+          type="text"
+          id="producto-nombre"
+          placeholder="Ej. Laptop"
+          maxlength="120"
+          required
+        >
+
+        <label for="producto-descripcion">
+          Descripción
+        </label>
+        <input
+          type="text"
+          id="producto-descripcion"
+          placeholder="Descripción del producto"
+        >
+
+        <label for="producto-precio">
+          Precio ($)
+        </label>
+        <input
+          type="number"
+          id="producto-precio"
+          min="0"
+          step="0.01"
+          required
+        >
+
+        <label for="producto-stock">
+          Existencias
+        </label>
+        <input
+          type="number"
+          id="producto-stock"
+          min="0"
+          step="1"
+          value="0"
+          required
+        >
+
+        <button type="submit" id="guardar-producto">
+          Guardar producto
+        </button>
+
+        <button
+          type="button"
+          id="cancelar-edicion"
+          hidden
+        >
+          Cancelar edición
+        </button>
+
+        <p id="mensaje-producto" role="alert"></p>
+
+      </form>
+
+
+      <!-- LISTA DE PRODUCTOS -->
+      <div class="resumen">
+        <h2>Mis productos</h2>
+        <span id="contador-productos">
+          0 productos
+        </span>
+      </div>
+
+      <ul
+        id="lista-productos"
+        aria-label="Lista de productos"
+      ></ul>
+
+      <p id="mensaje-vacio" class="mensaje-vacio">
+        Todavía no tienes productos registrados.
+      </p>
+
+    </section>
+
+    <footer>
+      <p>
+        Actividad 4 · Desarrollo Full Stack · Tecmilenio
+      </p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
